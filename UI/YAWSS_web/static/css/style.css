@@ -1,0 +1,320 @@
+/*
+
+ Copyright (C) 2020  IHSAN BILKAY
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+
+*/
+
+
+body {
+    color: white;
+}
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    padding-top: 20px;
+}
+
+/* Control the right side */
+.right {
+    background: rgb(89, 104, 110);
+    background: linear-gradient(90deg, rgba(89, 104, 110, 1) 24%, rgba(94, 110, 116, 1) 38%, rgba(131, 150, 157, 1) 78%);
+    right: 0;
+    width: 60%;
+    padding: 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Control the left side */
+.left {
+    background: rgb(0, 20, 31);
+    background: linear-gradient(90deg, rgba(0, 20, 31, 1) 53%, rgba(0, 47, 68, 1) 100%);
+    left: 0;
+    width: 40%;
+    overflow-y: auto;
+}
+
+.brand {
+    position: fixed;
+    left: 1%;
+    top: 0;
+    padding-bottom: 25px;
+}
+
+#brand {
+    text-anchor: start;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Ubuntu';
+}
+
+.left-content {
+    margin: auto 5% auto 80px;
+    overflow: visible
+}
+
+.ctrl-buttons {
+    float: left;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #83969d;
+    width: 100%;
+    padding: 1px;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #004058;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.scan-btn {
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #83969d;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-weight: bold;
+    width: 80%;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.scan-ctrl {
+    display: inline-block;
+    border-radius: 2px;
+    border: none;
+    color: black;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left: 3px;
+    font-weight: bold;
+    width: 30px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.right_header {
+    display: flex;
+    margin: 5%;
+    visibility: hidden;
+}
+
+.vuln-chart {
+    flex: 1;
+}
+
+.info-table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.row {
+    display: table-row;
+    margin: 15px;
+}
+
+.cell {
+    display: table-cell;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+.row > .cell:nth-child(odd) {
+    background-color: #4e555b;
+    color: white;
+    width: 150px;
+    text-align: right;
+}
+
+.row > .cell:nth-child(even) {
+    color: white;
+    font-weight: bold;
+    width: 50%;
+}
+
+.copyright {
+    position: fixed;
+    right: 25px;
+    bottom: 5px;
+}
+
+.copyright > a {
+    color: #1d2124;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
+}
+
+#notification {
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 10;
+
+}
+
+.severity {
+    float: left;
+    width: 150px;
+    margin-right: 15px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.severity:hover {
+    text-decoration: none;
+}
+
+.Critical {
+    background-color: #c71616;
+}
+
+.High {
+    background: #e74c3c;
+}
+
+.Medium {
+    background: #eb984e;
+}
+
+.Low {
+    background: #f7dc6f;
+}
+
+.Info {
+    background: #5dade2;
+}
+
+.module-name {
+    text-align: center;
+    width: calc(100%);
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    background: #4e555b;
+    border-radius: 4px;
+}
+
+.vuln {
+    padding: 3px;
+    font-family: Monaco;
+    font-size: 12px;
+    background-color: #dbdbdb;
+    border-radius: 2px;
+}
+
+
+#Counters {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#Counters > li {
+    float: left;
+    width: 10%;
+    margin: 3.9%;
+    text-align: center;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.Counter > span {
+    font-size: 2rem;
+}
+
+.Counter {
+    margin-top: 20%;
+    color: white;
+}
+
+#Counters > li:nth-child(1) {
+    background: #48c9b0;
+}
+
+#Counters > li:nth-child(2) {
+    background: #99a3a4;
+}
+
+#Counters > li:nth-child(3) {
+    background: #5d6d7e;
+}
+
+#Counters > li:nth-child(4) {
+    background: #58d68d;
+}
+
+#Counters > li:nth-child(5) {
+    background: #2c3e50;
+}
+

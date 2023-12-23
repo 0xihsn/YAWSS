@@ -1,0 +1,125 @@
+#     Copyright (C) 2020  IHSAN BILKAY
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>
+
+# The module name ex: XSS TEST MODULE
+name: ''
+
+# Info, Low, Medium, High, Critical
+severity: ''
+
+# The module info, describe the module with some sentences
+info: ''
+
+# Describe the impact of this vulnerability
+impact: ''
+
+# Two type is supported "check" and "input_output"
+module_type: ''
+
+# If the type is check you have to fill this field with the value that you want to check
+check:
+  contain:
+    - ''
+  does_not_contain:
+    - ''
+
+
+# Set the entry points
+entry_points:
+  # If you want to check specific elements you can write the elements names in the list
+  #-------------------------------
+  # Ex: forms_inputs_names: [page, get_page]
+  # in this example the engine will check the input_0 values by order just when the form
+  # have page or get_page form input names
+  #-------------------------------
+  # if the attack have more then one input you have to write the names of the entry points
+  # by order as a list.
+  #------------------------------
+  # Ex: forms_inputs_names: [[username, password],[user,pass]]
+  # in this example the input_0 will be the username value and input_1 will be the password value
+  # did you get it the input_0 and input_1 must have the same length.
+  #---------------------------------
+  # The fields that end with value is just supported in the "check" module type
+  forms_inputs_names: []
+  forms_inputs_values: []
+  full_request: []
+  paths: []
+  queries_names: []
+  queries_values: []
+  raw_requests: []
+  requests_headers_names: []
+  requests_headers_values: []
+  response_headers_values: []
+  responses_contents: []
+  responses_headers_names: []
+
+
+# inputs types the input can be set as a strings or files
+# the first value is the input_0 type
+# the second value is the input_1 type
+#-----------------------------------------------
+# if the first value is files the input_0 must be a path list to the files. The engine will read the files content
+# line by line so the first line will be the first list element the second line will be the second list element and so on
+# if you have a multiline payload write \n in the file instead of pressing enter
+# if the value is strings the input must have a list of strings
+input_type:
+  - files
+  - strings
+
+# Enable this option if you  want to test the your input in the hidden forms inputs too.
+# This field will ignored if you gave input list test in the entry_points field.
+test_hidden_form_inputs: True
+
+# Please set the input number. (min: 1)
+input_number: 2
+
+# If the module type is "input_output" this field is required
+input_0:
+  - ''
+
+# Create this field just if the input_number is more then 1
+input_1:
+  - ''
+
+
+# REFLECT, DELAY, strings, files
+# REFLECT: means the output will be the input itself
+# DELAY: the output will be just checking the response delay
+# strings: the output field must set to a strings list
+# files: the output field must set to a file paths list
+output_type: ''
+
+# The output points can be one or more from the below list
+# response_contents, response_headers_names, response_headers_values, status_code
+# the engine will check if the output value that we set before appears in this fields
+output_points: []
+
+# If the output type is DELAY you have to set the delay the unit is second
+delay: 5
+
+# list of paths or strings depend on the output type
+output:
+  - ''
+
+# The value can be SAME or url
+# Did the module expect the output in the same page or in another page
+#--------------------------------
+# The uses of this field can be explained by a simple example:
+# we find a stored xss vulnerability but the application is storing the payload in the history page
+# so the output path will be the history page not the page that contain the search bar then we have
+# to tell the engine to check the history page by setting the path to /history for example or
+# https://localhost/history
+output_path: ''
+

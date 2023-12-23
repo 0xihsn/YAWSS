@@ -1,0 +1,58 @@
+JET Database Engine
+Access Database Engine
+[ODBC Microsoft Access Driver]
+DB2 SQL error
+[DM_QUERY_E_SYNTAX]
+has occurred in the vicinity of:
+Dynamic SQL Error
+org.hsqldb.jdbc
+Unexpected end of command in statement [
+An illegal character has been found in the statement
+com.informix.jdbc
+Ingres SQLSTATE
+<b>Warning</b>: ibase_
+Unexpected end of command in statement
+org.hibernate.QueryException: unexpected char:
+org.hibernate.QueryException: expecting '
+java.sql.SQLSyntaxErrorException
+java.sql.SQLException
+System.Data.OleDb.OleDbException
+[Microsoft][ODBC SQL Server Driver]
+[Macromedia][SQLServer JDBC Driver]
+[SqlException
+System.Data.SqlClient.SqlException
+Unclosed quotation mark after the character string
+'80040e14'
+mssql_query()
+Microsoft OLE DB Provider for ODBC Drivers
+Microsoft OLE DB Provider for SQL Server
+Incorrect syntax near
+Sintaxis incorrecta cerca de
+Syntax error in string in query expression
+Unclosed quotation mark before the character string
+Data type mismatch in criteria expression.
+ADODB.Field (0x800A0BCD)
+the used select statements have different number of columns
+supplied argument is not a valid MySQL
+Column count doesn't match value count at row
+mysql_fetch_array()
+on MySQL result index
+You have an error in your SQL syntax;
+You have an error in your SQL syntax near
+MySQL server version for the right syntax to use
+[MySQL][ODBC
+Column count doesn't match
+valid MySQL result
+MySqlClient.
+Oracle error
+PostgreSQL query failed:
+supplied argument is not a valid PostgreSQL result
+pg_query() [:
+pg_exec() [:
+valid PostgreSQL result
+Npgsql.
+SQLite/JDBCDriver
+SQLite.Exception
+System.Data.SQLite.SQLiteException
+SQLITE_ERROR
+Sybase message:

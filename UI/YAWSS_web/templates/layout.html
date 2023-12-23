@@ -1,0 +1,170 @@
+<!--     Copyright (C) 2020  IHSAN BILKAY-->
+
+<!--    This program is free software: you can redistribute it and/or modify-->
+<!--    it under the terms of the GNU General Public License as published by-->
+<!--    the Free Software Foundation, either version 3 of the License, or-->
+<!--    (at your option) any later version.-->
+
+<!--    This program is distributed in the hope that it will be useful,-->
+<!--    but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the-->
+<!--    GNU General Public License for more details.-->
+
+<!--    You should have received a copy of the GNU General Public License-->
+<!--    along with this program.  If not, see <https://www.gnu.org/licenses/>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YAWSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+{% block body %}
+<div class="split left">
+    <div class="brand">
+        <svg width="40" height="300" fill="white">
+            <g>
+                <rect x="0" y="0" width="100" height="200" fill="#83969d"></rect>
+                <text id='brand' x="1%" y="50%" transform="rotate(-90, 28, 150)">
+                    YAWSS
+                </text>
+            </g>
+        </svg>
+    </div>
+    <div class="left-content" id="left-content">
+        {% block left%}
+        {% endblock %}
+    </div>
+    <div class="ctrl-buttons">
+        {% block buttons%}
+        {% endblock %}
+    </div>
+</div>
+<div class="split right">
+    {% block right%}
+    {% endblock %}
+</div>
+{% endblock %}
+<div class="copyright">
+    <a href="https://ihsn.me">İhsan Sulaıman © 2020</a>
+</div>
+
+
+<!--Toast message-->
+<div class="toast" id="notification">
+    <div class="toast-header">
+        <strong class="mr-auto"><i class="fa fa-grav">YAWSS</i> </strong>
+        <small>Assistant</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        <div id="message" style="padding: 20px"></div>
+    </div>
+</div>
+
+<!-- New Scan Modal -->
+<div class="modal fade" id="new-scan-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="new-scan-model-title">New Scan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="new-scan-name">Choose a target:</label>
+                <select id="new-scan-name" name="name">
+                </select>
+                <br/>
+                <div id="new-scan-modals-names">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="add_new_scan(document.getElementById('new-scan-name').value)">Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Import Scan Modal -->
+<div class="modal fade" id="import-scan-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="import-scan-modal-title">Import Scan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="import-scan-form">
+                    <input id="scan-file" type="file" name="scan" accept=".yml,.yaml"/>
+                </form>
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reset_the_file_input()">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="import_scan()">Import
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Import Module Modal -->
+<div class="modal fade" id="import-module-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="import-module-modal-title">Import Module</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="import-module-form">
+                    <input id="module-file" type="file" name="module" accept=".yml,.yaml"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reset_the_file_input()">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="import_module()">Import
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>

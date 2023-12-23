@@ -1,0 +1,93 @@
+#     Copyright (C) 2020  IHSAN BILKAY
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>
+
+
+# Please write the target host here
+base_url: https://localhost/YAWSS/
+
+# If the host requires login you can grab your cookies and use them here
+cookies: {}
+# # FILLED EXAMPLE
+# cookies:
+#   JSESSIONID: 4539F732367E19411B0A855EDD2EF9F3
+
+# the scanner will fill this option later but if you have any info would be nice
+files: !!set {}
+
+# The scanner will fill this option later but if you have any info would be nice
+forms: []
+# FILLED EXAMPLE
+# NOT: you can fill the values with default values the tool will use "YAWSS" in the empty fields instead
+#forms:
+#  - action: http://localhost/index.php?page=upload-file.php
+#    inputs:
+#      - name: UPLOAD_DIRECTORY
+#        type: hidden
+#        value: /tmp
+#      - name: MAX_FILE_SIZE
+#        type: hidden
+#        value: '2000000'
+#      - name: filename-text
+#        type: text
+#        value: ''
+#      - name: filename
+#        type: file
+#        value: ''
+#      - name: upload-file-php-submit-button
+#        type: submit
+#        value: Upload File
+#    link: http://localhost/index.php?page=upload-file.php
+#    method: post
+
+# If you want to use a specific headers here is where you have to write theme
+headers:
+  Accept: application/json, text/javascript, */*; q=0.01
+  Accept-Encoding: gzip, deflate
+  Accept-Language: en-US,en;q=0.5
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0
+# # EMPTY EXAMPLE
+# headers: {}
+
+# The scanner will fill this option later but if you have any info would be nice
+links: {}
+
+# Give your scan process a name
+name: NAME
+
+# For enable finding the subdomains set to True
+subdomains_research: True
+
+# If you want YAWSS to crawl the host set to True else you have to add the queries, links, and forms manually
+enable_crawler: True
+
+# Will be filled if the research is set to True
+subdomains: !!set {}
+
+# The scanner will fill this option later but if you have any info would be nice be sure to write links have queries parameters
+queries: !!set {}
+
+# This field is used by the crawler if you have any link that you think the crawler will not find paste it here
+queue: !!set {}
+
+# The name is descriptive enough
+threads_number: 16
+
+# Do not touch this field  trust YAWSS this field will be field later.
+vulnerabilities:
+  Critical: {}
+  High: {}
+  Info: {}
+  Low: {}
+  Medium: {}

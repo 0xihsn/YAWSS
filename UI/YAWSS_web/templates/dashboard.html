@@ -1,0 +1,84 @@
+<!--     Copyright (C) 2020  IHSAN BILKAY-->
+
+<!--    This program is free software: you can redistribute it and/or modify-->
+<!--    it under the terms of the GNU General Public License as published by-->
+<!--    the Free Software Foundation, either version 3 of the License, or-->
+<!--    (at your option) any later version.-->
+
+<!--    This program is distributed in the hope that it will be useful,-->
+<!--    but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the-->
+<!--    GNU General Public License for more details.-->
+
+<!--    You should have received a copy of the GNU General Public License-->
+<!--    along with this program.  If not, see <https://www.gnu.org/licenses/>-->
+
+
+{% extends "layout.html" %}
+
+
+{% block left%}
+{% endblock %}
+
+
+{% block buttons%}
+<button class="button" id="new-scan" data-toggle="modal" data-target="#new-scan-modal"
+        onclick="fill_the_new_scan_modal()"><span>New Scan</span></button>
+<button class="button" id="import-scan" data-toggle="modal" data-target="#import-scan-modal">
+    <span>Import Scan</span>
+</button>
+<button class="button" id="import-module" data-toggle="modal" data-target="#import-module-modal">
+    <span>Import Module</span>
+</button>
+{% endblock %}
+
+{% block right%}
+
+<ul id="Counters">
+    <li>
+        <div class="Counter"><span id="links-num"></span><br>Links</div>
+    </li>
+    <li>
+        <div class="Counter"><span id="forms-num"></span><br>Forms</div>
+    </li>
+    <li>
+        <div class="Counter"><span id="queries-num"></span><br>Queries</div>
+    </li>
+    <li>
+        <div class="Counter"><span id="subdomain-num"></span><br>Subdomains</div>
+    </li>
+    <li>
+        <div class="Counter"><span id="files-num"></span><br>Files</div>
+    </li>
+</ul>
+<br>
+<div class="right_header" id="right-header">
+    <div class="info-table" id="info-table">
+        <div class="row">
+            <div class="cell">SCAN NAME</div>
+            <div class="cell" id="info-table-scan-name"></div>
+        </div>
+        <div class="row">
+            <div class="cell">TARGET</div>
+            <div class="cell" id="info-table-target"></div>
+        </div>
+        <div class="row">
+            <div class="cell">DATE</div>
+            <div class="cell" id="info-table-date"></div>
+        </div>
+
+        <div class="row">
+            <div class="cell">VULNERABILITIES</div>
+            <div class="cell" id="info-table-vuln"></div>
+        </div>
+    </div>
+    <div class="vuln-chart">
+        <canvas id="vuln-chart" width="400px"></canvas>
+    </div>
+</div>
+
+<br>
+
+<div id="scan_res"></div>
+{% endblock %}
+
